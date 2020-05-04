@@ -1,5 +1,5 @@
 # Covidômetro
-Aplicação simples para mostrar um valor estimado, em tempo real do número de casos e óbitos relacionados à pandemia de COVID19 no Brasil
+Aplicação simples, baseada na ideia do Impostômetro, para mostrar um valor estimado, em tempo real, do número de casos e óbitos relacionados à pandemia de COVID19 no Brasil.
 
 ## Funcionamento
 O covidômetro obtém os dados a partir do site do ministério da saúde e calcula:
