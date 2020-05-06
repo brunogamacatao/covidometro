@@ -3,11 +3,11 @@ var DELAY_ATUALIZACAO_LOCAL    = 1000;
 var DELAY_ATUALIZACAO_SERVIDOR = 300000;
 
 // Elementos da página
-var span_casos = document.getElementById('casos');
-var span_obitos = document.getElementById('obitos');
+var span_casos              = document.getElementById('casos');
+var span_obitos             = document.getElementById('obitos');
 var span_ultima_atualizacao = document.getElementById('ultima_atualizacao');
-var span_prox_caso = document.getElementById('prox_caso');
-var span_prox_obito = document.getElementById('prox_obito');
+var span_prox_caso          = document.getElementById('prox_caso');
+var span_prox_obito         = document.getElementById('prox_obito');
 
 // Dados
 var data_ultima_atualizacao_pelo_servidor = null;
