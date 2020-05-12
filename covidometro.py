@@ -6,13 +6,25 @@ from dados import load_covid_data
 DT_FORMAT = '%Y-%m-%dT%H:%M:%S.%fZ'
 SEGUNDOS_EM_UM_DIA = 86400
 
+def converte(item):
+  global DT_FORMAT
+  return {
+      "createdAt": item['createdAt'], 
+      "label": item['label'],
+      "objectId": item['objectId'],
+      "qtd_confirmado": item['qtd_confirmado'],
+      "qtd_obito": item['qtd_obito'],
+      "updatedAt": dt.datetime.strptime(item['updatedAt'], DT_FORMAT)
+  }
+
 def get_dados_atuais():
   global DT_FORMAT
   global SEGUNDOS_EM_UM_DIA
-
-  results = json.loads(load_covid_data())['results']
-
-  ultima_atualizacao = dt.datetime.strptime(results[-1]['updatedAt'], DT_FORMAT)
+  
+  results = map(converte, json.loads(load_covid_data())['results'])
+  results = sorted(results, key=lambda x: x['updatedAt'])
+  
+  ultima_atualizacao = results[-1]['updatedAt']
   total_obitos       = int(results[-1]['qtd_obito'])
   total_casos        = int(results[-1]['qtd_confirmado'])
   novos_obitos       = total_obitos - int(results[-2]['qtd_obito'])
